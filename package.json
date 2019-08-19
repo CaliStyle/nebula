@@ -4,10 +4,11 @@
   "description": "The CLI companion to the Orbital Framework",
   "main": "./dist/main.js",
   "bin": {
-    "ob": "./dist/main.js"
+    "nb": "./dist/main.js"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "demo": "npm run build && npm link"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,6 @@
   "dependencies": {
     "@orbital/core": "^1.0.0-alpha.28",
     "chalk": "^2.4.1",
-    "nodegit": "^0.22.1",
     "shelljs": "^0.8.2"
   },
   "devDependencies": {

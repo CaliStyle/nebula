@@ -1,14 +1,16 @@
 import { CLI } from '@orbital/core';
-import { NewCommand } from './commands/new.command';
-import { TestCommand } from './commands/test.command';
+import { CleanCommand } from './commands/clean.command';
+import { CheckCommand } from './commands/check.command';
+// import { TestCommand } from './commands/test.command';
+// import { HelloCommand } from './commands/hello.command';
 
 @CLI({
-    name: 'ob',
+    name: 'nb',
     version: '1.0.0',
-    prettyName: 'Orbital CLI',
+    prettyName: 'Nebula CLI',
     declarations: [
-        NewCommand,
-        TestCommand
+        CleanCommand,
+        CheckCommand
     ],
 })
 export class MyCLI { }

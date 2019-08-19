@@ -1,0 +1,64 @@
+{
+    "importOrder": [
+        {
+            "group": "angular",
+            "name": "@angular/core",
+            "match": "exact",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "@angular/",
+            "match": "start",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "@ngrx/store",
+            "match": "exact",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "@ngrx/effects",
+            "match": "exact",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "@ngrx/",
+            "match": "start",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "/actions/",
+            "match": "contains",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "/reducers/",
+            "match": "contains",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "ng-engine",
+            "match": "contains",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "rxjs",
+            "match": "contains",
+            "exclude": "absolute"
+        },
+        {
+            "group": "angular",
+            "name": "../",
+            "match": "contains",
+            "exclude": "absolute"
+        }
+    ]
+}
