@@ -1,5 +1,4 @@
 import * as fs from 'fs'
-import chalk from 'chalk'
 import { fromDir, getConfig } from "../util"
 
 const sortImports = (order, lines) => {
@@ -7,19 +6,14 @@ const sortImports = (order, lines) => {
 
   order.forEach(orderRule => {
     let regexCase = RegExp(`^(import)(?:.*?(as))?(?:.*?(as))?(?:.*?(from)).*(')(${(orderRule.match == "end" || orderRule.match == "contains") ? ".*" : ""}${orderRule.name}${(orderRule.match == "start" || orderRule.match == "contains") ? ".*" : ""})(')$`)
-    lines.forEach((line, i) => {
-      if (line.match(regexCase)) {
+    lines.filter(line => line.match(regexCase)).forEach((line, i) => {
         lines.splice(i,1)
-        let group = orderRule.group
-        if (!orderRule.hasOwnProperty("group")) {
-          group = 'misc'
-        }
+        const group: object = orderRule.group
         correctOrder.push({group, line})
-      }
     })
   })
 
-  correctOrder = [...correctOrder, ...lines]
+  lines.forEach(line => correctOrder.push({group: "misc", line}))
 
   return correctOrder
 }
@@ -29,17 +23,15 @@ export const clean_inputs = (path) => {
   const config = getConfig() 
   let badFileRegex = /^(import)(?:.*?(as))?(?:.*?(as))?(?:.*?(from))*.*$/gm
 
-  for (const file of allFiles) {
+  allFiles.forEach(file => {
     const allLines: string[] = fs.readFileSync(file).toString().split("\n")
     let matchedLines: string[] = []
 
-    allLines.forEach(line => {
-      if (line.match(badFileRegex)) {
+    allLines.filter(line => line.match(badFileRegex)).map(line => {
         matchedLines.push(line)
-      }
     })
 
     const sortedImports = sortImports(config.importOrder, matchedLines)
     console.log(sortedImports)
-  }
+  })
 }

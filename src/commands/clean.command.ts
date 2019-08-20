@@ -2,6 +2,7 @@ import { Command, Executable, Param, Option } from "@orbital/core";
 import { fromDir, getConfig } from "../util";
 
 import { clean_inputs } from "../actions/clean-inputs"
+import chalk from "chalk";
 
 @Command({
     name: 'clean',
@@ -13,6 +14,6 @@ export class CleanCommand extends Executable {
     execute(
         @Param() path: string = process.cwd()
     ) {
-      clean_inputs(path)
+        clean_inputs(path)
     }
 }

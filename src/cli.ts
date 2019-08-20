@@ -13,4 +13,4 @@ import { CheckCommand } from './commands/check.command';
         CheckCommand
     ],
 })
-export class MyCLI { }
+export class Nebula { }

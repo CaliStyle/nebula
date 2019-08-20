@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { OrbitalFactory } from '@orbital/core';
-import { MyCLI } from './cli';
+import { Nebula } from './cli';
 
 OrbitalFactory
-    .bootstrap(MyCLI)
+    .bootstrap(Nebula)
     .execute(process.argv)
